@@ -30,6 +30,7 @@ if __name__=="__main__":
     base_df = load_base_dataset()
     mobile_df, laptop_df , base_df = get_fixed_base_dataframes(base_df)
     analyze_mobile_laptop_sales(mobile_df, laptop_df)
+    brands_avg_quantity_and_price(base_df)
 
-    analyze_brands_sales(base_df)
+
 
