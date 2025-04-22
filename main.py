@@ -4,6 +4,7 @@ import pandas as pd
 from Contants import  *
 from brandsAnalysis import *
 from salesMobilesLaptopsComparison import *
+from brandMainFinancialProfit import *
 def to_gb(val):
     val = str(val).strip().upper()
     if 'TB' in val:
@@ -29,6 +30,8 @@ def get_fixed_base_dataframes(base_df):
 if __name__=="__main__":
     base_df = load_base_dataset()
     mobile_df, laptop_df , base_df = get_fixed_base_dataframes(base_df)
+    getBrandsMainFinancialProfit(base_df)
+
     analyze_mobile_laptop_sales(mobile_df, laptop_df)
     brands_avg_quantity_and_price(base_df)
 
