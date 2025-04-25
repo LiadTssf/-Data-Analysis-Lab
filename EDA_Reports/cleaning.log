@@ -1,0 +1,145 @@
+2025-04-25 19:15:01,759 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 19:15:02,659 INFO Duplicates removed: 0
+2025-04-25 19:15:02,663 INFO Outlier rows flagged: 0
+2025-04-25 20:00:32,460 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:00:33,210 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:00:33,213 INFO Outlier rows flagged: 0
+2025-04-25 20:01:27,815 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:01:28,275 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:01:28,276 INFO Outlier rows flagged: 0
+2025-04-25 20:01:28,284 INFO Z-score outliers in Price: 0
+2025-04-25 20:06:53,226 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:07:03,530 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:07:03,531 INFO Outlier rows flagged: 0
+2025-04-25 20:07:03,538 INFO Z-score outliers in Price: 0
+2025-04-25 20:24:11,316 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:24:12,121 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:28:22,562 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:28:23,327 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:33:30,080 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:33:30,978 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:38:30,448 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 20:38:31,356 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 20:38:31,359 WARNING Skipping column 'RAM' — no valid numeric values
+2025-04-25 20:38:31,359 INFO Outlier rows flagged: 0
+2025-04-25 20:38:31,366 INFO Z-score outliers in Price: 0
+2025-04-25 21:01:28,866 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 21:01:29,772 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 21:01:29,775 WARNING Skipping column 'RAM' — no valid numeric values
+2025-04-25 21:01:29,775 INFO Outlier rows flagged: 0
+2025-04-25 21:01:29,781 INFO Z-score outliers in Price: 0
+2025-04-25 21:06:32,193 INFO Missing-value counts:
+SSD                      24983
+Core Specification       24983
+Product                      0
+Brand                        0
+Price                        0
+Inward Date                  0
+Product Code                 0
+Product Specification        0
+Quantity Sold                0
+Dispatch Date                0
+dtype: int64
+2025-04-25 21:06:33,095 INFO Duplicates removed (subset=['Product Code', 'Customer Name', 'Inward Date']): 0
+2025-04-25 21:06:33,098 WARNING Skipping column 'RAM' — no valid numeric values
+2025-04-25 21:06:33,098 INFO Outlier rows flagged: 0
+2025-04-25 21:06:33,104 INFO Z-score outliers in Price: 0
