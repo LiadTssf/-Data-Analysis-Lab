@@ -6,6 +6,9 @@ from brandsAnalysis import *
 from salesMobilesLaptopsComparison import *
 from brandMainFinancialProfit import *
 from CoreSpecAnalysis import *
+from memoriesAnalysis import *
+import os
+import glob
 def to_gb(val):
     val = str(val).strip().upper()
     if 'TB' in val:
@@ -26,16 +29,28 @@ def get_fixed_base_dataframes(base_df):
     return base_df[base_df[PRODUCT_COL] == 'Mobile Phone'] , base_df[base_df[PRODUCT_COL] == 'Laptop'], base_df
 
 
+def delete_all_pngs(path):
+    # Use glob to find all .png files recursively
+    png_files = glob.glob(os.path.join(path, '**', '*.png'), recursive=True)
+
+    for file_path in png_files:
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            print(f"Failed to delete {file_path}: {e}")
 
 
 if __name__=="__main__":
     base_df = load_base_dataset()
+    delete_all_pngs("Output_Graphs")
     mobile_df, laptop_df , base_df = get_fixed_base_dataframes(base_df)
-    analyseCoreSpecs (laptop_df)
+    analyze_mobile_laptop_sales(mobile_df, laptop_df)
+
+    analyze_technical_specs(laptop_df, mobile_df, base_df)
     base_df.to_csv('base_df.csv', index=False)
     getBrandsMainFinancialProfit(base_df)
-    analyze_mobile_laptop_sales(mobile_df, laptop_df)
     brands_avg_quantity_and_price(base_df)
+    analyseCoreSpecs (laptop_df)
 
 
 
