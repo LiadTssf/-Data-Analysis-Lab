@@ -104,7 +104,7 @@ def analyze_technical_specs(laptops_df, mobiles_df, base_df):
         else:
             matrix = pd.crosstab(working_df[col1], working_df[col2])
         if normalize:
-            matrix = matrix.div(matrix.sum(axis=1), axis=0)
+            matrix = matrix / matrix.values.max()
 
         plt.figure(figsize=(10, 6))
         plt.imshow(matrix, cmap='Blues', aspect='auto')
@@ -112,6 +112,12 @@ def analyze_technical_specs(laptops_df, mobiles_df, base_df):
         plt.xticks(range(len(matrix.columns)), matrix.columns, rotation=45)
         plt.yticks(range(len(matrix.index)), matrix.index)
         plt.title(title or f"Diffusion Matrix: {col1} vs {col2}")
+        # Add text annotations
+        for i in range(len(matrix.index)):
+            for j in range(len(matrix.columns)):
+                value = matrix.iloc[i, j]
+                plt.text(j, i, f'{value:.2f}' if isinstance(value, float) else int(value),
+                         ha='center', va='center', color='black')
         plt.xlabel(col2.replace('_', ' ').title())
         plt.ylabel(col1.replace('_', ' ').title())
         plt.tight_layout()
@@ -153,7 +159,7 @@ def analyze_technical_specs(laptops_df, mobiles_df, base_df):
     plot_rom_ssd_by_brand()
 
     # ---------- Diffusion Matrices ----------
-    diffusion_matrix(RAM_COL, REGION_COL, weight_col=QUANTITY_COL, title="RAM vs Region (Weighted)")
-    diffusion_matrix(ROM_COL, BRAND_COL, weight_col=QUANTITY_COL, title="ROM vs Brand (Weighted)")
-    diffusion_matrix(CORE_COL, BRAND_COL, weight_col=QUANTITY_COL, title="Core Spec vs Brand (Laptops)", laptop_df=True)
-    diffusion_matrix(PROCESSOR_COL, REGION_COL, weight_col=QUANTITY_COL, title="Processor Spec vs Region (Mobiles)", mobile_df=True)
+    diffusion_matrix(RAM_COL, REGION_COL, normalize=True, weight_col=QUANTITY_COL, title="RAM vs Region (Weighted)")
+    diffusion_matrix(ROM_COL, BRAND_COL,  normalize=True,weight_col=QUANTITY_COL, title="ROM vs Brand (Weighted)")
+    diffusion_matrix(CORE_COL, BRAND_COL, normalize=True, weight_col=QUANTITY_COL, title="Core Spec vs Brand (Laptops)", laptop_df=True)
+    diffusion_matrix(PROCESSOR_COL, REGION_COL,  normalize=True,weight_col=QUANTITY_COL, title="Processor Spec vs Region (Mobiles)", mobile_df=True)

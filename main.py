@@ -13,6 +13,7 @@ from pathlib import Path
 import logging              
 from data_quality import clean_and_audit   
 from extra_visualizations import generate_extra_graphs
+from GeneralAnalysis import *
 
 def to_gb(val):
     val = str(val).strip().upper()
@@ -23,7 +24,7 @@ def to_gb(val):
     return np.nan
 
 def get_fixed_base_dataframes(base_df):
-    string_columns = [BRAND_COL, PRODUCT_ID_COL,PRODUCT_DISCRIPTION_COL , COSTUMER_COL,LOCATION_COL, REGION_COL, PROCESSOR_COL,CORE_COL  ]
+    string_columns = [BRAND_COL, PRODUCT_ID_COL,PRODUCT_DISCRIPTION_COL , COSTOMER_COL,LOCATION_COL, REGION_COL, PROCESSOR_COL,CORE_COL  ]
     date_columns = [INWARD_DATE_COL, DISPATCH_DATE_COL]
     memory_columns = [RAM_COL, ROM_COL, SSD_COL]
 
@@ -63,13 +64,14 @@ if __name__=="__main__":
         format="%(asctime)s %(levelname)s %(message)s",
     )
     
-    base_df = clean_and_audit(base_df)
+    #base_df1 = clean_and_audit(base_df.copy())
 
     mobile_df, laptop_df , base_df = get_fixed_base_dataframes(base_df)
+    general_analysis(mobile_df, laptop_df, base_df)
     analyze_mobile_laptop_sales(mobile_df, laptop_df)
 
     analyze_technical_specs(laptop_df, mobile_df, base_df)
-    base_df.to_csv('base_df.csv', index=False)
+    #base_df.to_csv('base_df.csv', index=False)
     getBrandsMainFinancialProfit(base_df)
     brands_avg_quantity_and_price(base_df)
     analyseCoreSpecs (laptop_df)
