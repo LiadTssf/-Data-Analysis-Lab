@@ -24,7 +24,7 @@ def to_gb(val):
     return np.nan
 
 def get_fixed_base_dataframes(base_df):
-    string_columns = [BRAND_COL, PRODUCT_ID_COL,PRODUCT_DISCRIPTION_COL , COSTOMER_COL,LOCATION_COL, REGION_COL, PROCESSOR_COL,CORE_COL  ]
+    string_columns = [BRAND_COL, PRODUCT_ID_COL,PRODUCT_DISCRIPTION_COL , CUSTOMER_COL,LOCATION_COL, REGION_COL, PROCESSOR_COL,CORE_COL  ]
     date_columns = [INWARD_DATE_COL, DISPATCH_DATE_COL]
     memory_columns = [RAM_COL, ROM_COL, SSD_COL]
 

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from fontTools.ttx import process
-
-from Contants import BRAND_COL, QUANTITY_COL, PRICE_COL, RAM_COL, ROM_COL, COSTOMER_COL, SSD_COL
+import seaborn as sns
+from Contants import BRAND_COL, QUANTITY_COL, PRICE_COL, RAM_COL, ROM_COL, CUSTOMER_COL, SSD_COL
 import pandas as pd
 import numpy as np
 def general_analysis(mobiles, laptops, base_df):
@@ -10,6 +10,7 @@ def general_analysis(mobiles, laptops, base_df):
     generateStatsGraphs(mobiles, laptops, base_df, RAM_COL)
     generateStatsGraphs(mobiles, laptops, base_df, ROM_COL)
     generateSSDHistogram(laptops)
+    customerTransactionDistribution(base_df)
 
 def generateSSDHistogram(laptops):
     df = laptops[SSD_COL].value_counts().reset_index()
@@ -82,3 +83,23 @@ def getNumericStats(base_df):
     plt.grid(True)
     plt.savefig("Output_Graphs/General/Unit Price KDE.png")
     plt.close()
+def customerTransactionDistribution(base_df):
+    # Step 1: Count the appearances of each unique customer
+    customer_counts = base_df[CUSTOMER_COL].value_counts()
+
+    # Step 2: Count how many customers appear N times
+    frequency_distribution = customer_counts.value_counts().sort_index()
+
+    # Step 3: Plot bar graph
+    plt.figure(figsize=(10, 6))
+    plt.bar(frequency_distribution.index, frequency_distribution.values, width=0.6)
+    frequency_distribution_df = pd.DataFrame(frequency_distribution)
+    for i, row in enumerate(frequency_distribution_df.itertuples()):
+        plt.text(row.Index, row.count + 30, f"{int(row.count)}", ha='center', va='bottom', color='blue', fontsize=10)
+    plt.xlabel('Number of Transactions')
+    plt.ylabel('Number of Customers')
+    plt.title('Number of Customers by Number of Transactions')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.xticks(frequency_distribution.index)
+    plt.tight_layout()
+    plt.savefig(f"Output_Graphs/General/Customers by Number of Transactions.png")
