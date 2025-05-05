@@ -14,7 +14,8 @@ import logging
 from data_quality import clean_and_audit   
 from extra_visualizations import generate_extra_graphs
 from GeneralAnalysis import *
-
+from RigionPatterns import generateRagionPatterns
+from ProcessorCorePop import *
 def to_gb(val):
     val = str(val).strip().upper()
     if 'TB' in val:
@@ -36,6 +37,7 @@ def get_fixed_base_dataframes(base_df):
     base_df['Unit_Price'] = base_df['Price'] / base_df['Quantity Sold']
     base_df['Inward Month'] = base_df['Inward Date'].dt.to_period('M')
     base_df['Inward Year'] = base_df['Inward Date'].dt.year
+    base_df.drop([PRODUCT_ID_COL, PRODUCT_DISCRIPTION_COL, LOCATION_COL],axis=1,inplace=True)
     return base_df[base_df[PRODUCT_COL] == 'Mobile Phone'] , base_df[base_df[PRODUCT_COL] == 'Laptop'], base_df
 
 
@@ -68,13 +70,10 @@ if __name__=="__main__":
 
     mobile_df, laptop_df , base_df = get_fixed_base_dataframes(base_df)
     general_analysis(mobile_df, laptop_df, base_df)
+    generateRagionPatterns(base_df, laptop_df, mobile_df)
+    proccessorCorePop(base_df, laptop_df, mobile_df)
+    getBrandsMainFinancialProfit(base_df)
     analyze_mobile_laptop_sales(mobile_df, laptop_df)
 
-    analyze_technical_specs(laptop_df, mobile_df, base_df)
-    #base_df.to_csv('base_df.csv', index=False)
-    getBrandsMainFinancialProfit(base_df)
-    brands_avg_quantity_and_price(base_df)
-    analyseCoreSpecs (laptop_df)
-    generate_extra_graphs(base_df)
 
 

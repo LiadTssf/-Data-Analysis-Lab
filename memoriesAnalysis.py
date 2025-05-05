@@ -17,11 +17,6 @@ def analyze_technical_specs(laptops_df, mobiles_df, base_df):
         plt.xticks(rotation=rotation)
         plt.tight_layout()
         plt.grid(axis='y', linestyle='--', alpha=0.7)
-        if save_as:
-            plt.savefig(save_as)
-        else:
-            plt.show()
-        plt.close()
 
     def plot_rom_ssd_by_brand():
         # Group ROM and SSD by Brand
@@ -86,10 +81,6 @@ def analyze_technical_specs(laptops_df, mobiles_df, base_df):
         plt.legend(title=group_by.title())
         plt.grid(axis='y', linestyle='--', alpha=0.7)
         plt.tight_layout()
-        if save_as:
-            plt.savefig(save_as)
-        else:
-            plt.show()
         plt.close()
     def diffusion_matrix(col1, col2, weight_col=None, normalize=False, title=None, laptop_df=False, mobile_df=False):
         working_df = df
